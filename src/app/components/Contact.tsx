@@ -184,7 +184,7 @@ export function Contact({ studioImage, preselectedSessionType }: ContactProps) {
                   name="date"
                   value={formData.date}
                   onChange={handleChange}
-                  className="w-full bg-transparent border-0 border-b border-[#2E2A25] pb-3 text-[#F5EFE4] focus:outline-none focus:border-[#C8A96E] transition-all"
+                  className="contact-datetime w-full bg-transparent border-0 border-b border-[#2E2A25] pb-3 text-[#F5EFE4] focus:outline-none focus:border-[#C8A96E] transition-all"
                   aria-label="Preferred Date and Time"
                   title="Preferred Date and Time"
                   required
@@ -298,6 +298,16 @@ export function Contact({ studioImage, preselectedSessionType }: ContactProps) {
       <style>{`
         .contact-studio-photo {
           filter: sepia(0.15);
+        }
+
+        /* Make the calendar icon visible on dark backgrounds (Chrome/Edge/Safari). */
+        .contact-datetime::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+          opacity: 0.75;
+          cursor: pointer;
+        }
+        .contact-datetime:hover::-webkit-calendar-picker-indicator {
+          opacity: 1;
         }
       `}</style>
     </section>
